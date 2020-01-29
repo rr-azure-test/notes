@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Notes Example</title>
+    <th:block th:include="fragments/header :: head"></th:block>
+</head>
+<body>
+
+<main role="main" class="container-fluid">
+
+    <div class="starter-template">
+        <h1>Add Note</h1>
+    </div>
+
+    <form style="margin-top: 10px;" action="#" th:action="|/notes|" th:object="${note}" method="post">
+
+        <div class="form-group">
+            <label for="name" th:text="Name"></label>
+            <input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Name">
+            <p class="help-block" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="priority" th:text="Priority"></label>
+            <select class="form-control" name="priority" id="priority" placeholder="Priority">
+                <option th:each="i : ${#numbers.sequence(1, 6)}"
+                        th:value="${i}"
+                        th:text="${i}">
+                </option>
+            </select>
+            <p class="help-block" th:if="${#fields.hasErrors('priority')}" th:errors="*{priority}"></p>
+        </div>
+
+        <button type="submit" class="btn btn-warning" th:text="Add" id="add-submit" style="margin-bottom: 20px;"></button>
+    </form>
+
+</main>
+<!-- /.container -->
+
+<th:block th:include="fragments/footer :: footer"></th:block>
+</body>
+</html>

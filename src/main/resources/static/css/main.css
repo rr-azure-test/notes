@@ -1,0 +1,25 @@
+body {
+    padding-top: 5rem;
+}
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+h1{
+    color:#0000FF;
+}
+
+h2{
+    color:#FF0000;
+}
+
+.message-ok {
+    color: green;
+    background-color: white;
+}
+
+.message-error {
+    color: red;
+    background-color: white;
+}

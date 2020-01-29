@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Notes Example</title>
+    <th:block th:include="fragments/header :: head"></th:block>
+</head>
+<body>
+
+<th:block th:include="fragments/message :: message"></th:block>
+
+<main role="main" class="container-fluid">
+
+    <div class="starter-template">
+        <h1>Notes</h1>
+    </div>
+
+    <div th:if="${#lists.isEmpty(notes)}">Empty notes!</div>
+
+    <ul th:if="${not #lists.isEmpty(notes)}">
+        <li th:each="note : ${notes}"><a th:href="@{/notes/{id}(id=${note.id})}" th:text="${note.name} + ' ('+ ${note.priority} + ')'"></a></li>
+    </ul>
+
+    <div>
+        <a href="/notes/add">Add new one</a>
+    </div>
+</main>
+<!-- /.container -->
+
+<th:block th:include="fragments/footer :: footer"></th:block>
+</body>
+</html>
