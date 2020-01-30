@@ -16,7 +16,7 @@ public class Note {
 	private static final int DEFAULT_PRIORITY = 6;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
 	@NotEmpty
